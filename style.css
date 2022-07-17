@@ -31,6 +31,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
+
 .big-wrapper {
     position: relative;
     width: 100%;
@@ -167,12 +172,24 @@ a {
     line-height: 39px;
 }
 
-.toggle-btn i:last-child {
+.toggle-btn:hover {
+    background-color: var(--mainColor);
+}
+
+.big-wrapper.light .toggle-btn i:last-child {
     display: none;
 }
 
-.toggle-btn:hover {
-    background-color: var(--mainColor);
+.big-wrapper.light .toggle-btn i:first-child {
+    display: block;
+}
+
+.big-wrapper.dark .toggle-btn i:last-child {
+    display: block;
+}
+
+.big-wrapper.dark .toggle-btn i:first-child {
+    display: none;
 }
 
 .shape {
@@ -183,3 +200,22 @@ a {
     left: -15px;
     opacity: 0.1;
 }
+
+
+.copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    animation: appear 1s 1 both;
+}
+
+@keyframes appear {
+    0% {
+      clip-path: circle(30% at -25% -25%);
+    }
+    100% {
+      clip-path: circle(150% at 0 0);
+    }
+  }
+
